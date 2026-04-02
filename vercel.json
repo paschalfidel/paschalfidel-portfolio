@@ -1,6 +1,17 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/public/sections/:path*",
+      "destination": "/public/sections/:path*"
+    },
+    {
+      "source": "/public/projects/:path*",
+      "destination": "/public/projects/:path*"
+    },
+    {
+      "source": "/public/images/:path*",
+      "destination": "/public/images/:path*"
+    }
   ],
   "cleanUrls": true,
   "trailingSlash": false
