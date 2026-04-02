@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Paschal Omereife | Entrepreneurial Journey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FDFCF8;
+            color: #1E1E2A;
+            overflow-x: hidden;
+        }
+
+        /* Luxury Navigation */
+        .luxury-nav {
+            background: rgba(253, 252, 248, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            padding: 0.8rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #2C2C3A 0%, #C5A267 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            color: #C5A267;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+        
+        .navbar-toggler-icon-custom {
+            font-size: 1.8rem;
+            color: #C5A267;
+        }
+        
+        /* Nav links styling */
+        .nav-link-luxury {
+            font-weight: 500;
+            color: #1E1E2A;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav-link-luxury:hover,
+        .nav-link-luxury.active {
+            color: #C5A267;
+        }
+        
+        .nav-link-luxury.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: #C5A267;
+            border-radius: 2px;
+        }
+        
+        /* Dropdown styling */
+        .dropdown-menu-luxury {
+            background: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown-item-luxury {
+            padding: 0.6rem 1.5rem;
+            color: #1E1E2A;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .dropdown-item-luxury:hover {
+            background: rgba(197, 162, 103, 0.1);
+            color: #C5A267;
+            padding-left: 1.8rem;
+        }
+        
+        /* Mobile offcanvas */
+        .offcanvas-luxury {
+            background: #0A0A0F;
+            width: 280px;
+        }
+        
+        .offcanvas-luxury .offcanvas-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+        }
+        
+        .offcanvas-luxury .offcanvas-title {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .offcanvas-luxury .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .offcanvas-luxury .nav-link:hover,
+        .offcanvas-luxury .nav-link.active {
+            color: #C5A267;
+            background: rgba(197, 162, 103, 0.1);
+        }
+        
+        .offcanvas-luxury .dropdown-menu {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            padding-left: 1.5rem;
+        }
+        
+        .offcanvas-luxury .dropdown-item {
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .offcanvas-luxury .dropdown-item:hover {
+            background: rgba(197, 162, 103, 0.15);
+            color: #C5A267;
+        }
+        
+        /* Business page specific styling */
+        .business-hero {
+            background: linear-gradient(120deg, #FDFCF8 0%, #F8F5EF 100%);
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 2rem;
+        }
+        
+        .gold-accent {
+            color: #C5A267;
+        }
+        
+        .tagline-banner {
+            background: linear-gradient(135deg, #1E1E2A 0%, #2C2C3A 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tagline-banner::before {
+            content: '"';
+            position: absolute;
+            right: 20px;
+            bottom: -20px;
+            font-size: 120px;
+            opacity: 0.05;
+            font-family: serif;
+            color: white;
+        }
+        
+        .journey-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(197, 162, 103, 0.1);
+            height: 100%;
+        }
+        
+        .journey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.1);
+            border-color: rgba(197, 162, 103, 0.3);
+        }
+        
+        .journey-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(197, 162, 103, 0.12);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .journey-icon i {
+            font-size: 1.8rem;
+            color: #C5A267;
+        }
+        
+        .strength-badge {
+            background: rgba(197, 162, 103, 0.1);
+            color: #C5A267;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+        
+        .vision-quote {
+            background: linear-gradient(135deg, #F8F5EF 0%, #FDFCF8 100%);
+            border-left: 4px solid #C5A267;
+            padding: 2rem;
+            border-radius: 24px;
+        }
+        
+        hr.luxury-hr {
+            width: 70px;
+            height: 3px;
+            background: #C5A267;
+            opacity: 0.5;
+            margin: 1.5rem auto;
+        }
+        
+        .btn-luxury-outline {
+            background: transparent;
+            border: 1.5px solid #C5A267;
+            color: #1E1E2A;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-luxury-outline:hover {
+            background: #C5A267;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .social-ring {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(197, 162, 103, 0.12);
+            transition: all 0.2s;
+        }
+        
+        .social-ring:hover {
+            background: #C5A267;
+            transform: translateY(-4px);
+        }
+        
+        .social-ring img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0.2);
+            transition: filter 0.2s;
+        }
+        
+        .social-ring:hover img {
+            filter: brightness(0) invert(1);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .journey-card {
+                padding: 1.5rem;
+            }
+            .tagline-banner {
+                padding: 1.5rem;
+            }
+            .tagline-banner p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Luxury Navigation -->
+    <nav class="navbar navbar-expand-lg luxury-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">PASCHAL OMEREIFE</a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar" aria-label="Toggle navigation">
+                <i class="bi bi-list navbar-toggler-icon-custom"></i>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-luxury" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-luxury" href="./aboutme.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-luxury" href="../projects/projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-luxury" href="./contactme.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-luxury dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-luxury">
+                            <li><a class="dropdown-item dropdown-item-luxury" href="./business.html">Business</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item dropdown-item-luxury" href="./personalsite.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end offcanvas-luxury" tabindex="-1" id="mobileNavbar" aria-labelledby="mobileNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavbarLabel">
+                <img src="/public/images/myimage.jpg" height="40" width="40" style="border-radius: 50%; object-fit: cover; margin-right: 10px;">
+                Paschal Omereife
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-house-door me-2"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./aboutme.html" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-person me-2"></i> About Me
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../projects/projects.html" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-code-square me-2"></i> Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contactme.html" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-envelope me-2"></i> Contact Me
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-grid-3x3-gap-fill me-2"></i> Features
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="./business.html" data-bs-dismiss="offcanvas">Business</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./personalsite.html" data-bs-dismiss="offcanvas">Gallery</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="business-hero pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <div class="mb-4">
+                        <span class="strength-badge"><i class="bi bi-briefcase-fill me-1"></i> Entrepreneurial Edge</span>
+                        <span class="strength-badge"><i class="bi bi-code-slash me-1"></i> Full-Stack Developer</span>
+                        <span class="strength-badge"><i class="bi bi-graph-up me-1"></i> Business Strategist</span>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3" style="letter-spacing: -0.02em;">Beyond Code — <span class="gold-accent">Building Value, Solving Real Problems</span></h1>
+                    <p class="lead text-secondary">My journey into software development didn't start with code — it started with people, business, and solving real-world problems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- High-Impact Tagline -->
+    <div class="container">
+        <div class="tagline-banner">
+            <i class="bi bi-quote fs-1 text-gold opacity-50 mb-3 d-block"></i>
+            <p class="text-white fs-4 fw-medium mb-0" style="line-height: 1.4;">“I don't just build applications — I build solutions shaped by real-world business experience, human behavior, and technology.”</p>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        
+        <!-- The Journey Section -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-2">The Journey</h2>
+            <hr class="luxury-hr">
+            <p class="lead text-secondary">From logistics to leadership — every step shaped my approach to building</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Logistics Management -->
+            <div class="col-md-6">
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">📦 Logistics Management</h3>
+                    <p class="text-secondary mb-3"><strong>Understanding Systems & Operations</strong></p>
+                    <p class="text-secondary">My career began in logistics, where I developed a deep understanding of operational efficiency, process optimization, supply chain dynamics, and resource management. This experience trained me to think in systems — a skill I now apply when designing scalable software architectures.</p>
+                </div>
+            </div>
+
+            <!-- Customer Service & Sales -->
+            <div class="col-md-6">
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">🤝 Customer Service & Sales</h3>
+                    <p class="text-secondary mb-3"><strong>Mastering Human Behavior</strong></p>
+                    <p class="text-secondary">Working in customer-facing roles taught me how to understand user needs beyond words, handle objections, build trust, and communicate clearly. This is where I learned that every product is only as good as the experience it delivers.</p>
+                </div>
+            </div>
+
+            <!-- Social Media Management -->
+            <div class="col-md-6">
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">📱 Social Media Management</h3>
+                    <p class="text-secondary mb-3"><strong>Building Digital Presence</strong></p>
+                    <p class="text-secondary">Managing brands online helped me develop content strategy, audience targeting, brand positioning, and data-driven engagement tactics. This sharpened my ability to build products that people actually want and engage with.</p>
+                </div>
+            </div>
+
+            <!-- Entrepreneurship -->
+            <div class="col-md-6">
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">💼 Entrepreneurship — Spec360 Communication</h3>
+                    <p class="text-secondary mb-3"><strong>Building from the Ground Up</strong></p>
+                    <p class="text-secondary">As founder of Spec360 Communication, I've built and managed a business from scratch, sold tech products, managed customer relationships, and handled marketing and growth strategies. Entrepreneurship taught me to think in terms of profit, scalability, and turning ideas into execution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software Development Section -->
+        <div class="row mt-5 pt-4">
+            <div class="col-12">
+                <div class="journey-card" style="background: linear-gradient(135deg, #F8F5EF 0%, #FDFCF8 100%);">
+                    <div class="journey-icon" style="background: rgba(197, 162, 103, 0.2);">
+                        <i class="bi bi-code-square"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">💻 Software Development — Engineering the Future</h3>
+                    <p class="text-secondary mb-4">Now as a full-stack software developer, I combine all my past experiences to:</p>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                                <span>Build user-focused applications</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                                <span>Develop scalable backend architectures</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                                <span>Create intuitive frontend experiences</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                                <span>Integrate business logic into technical solutions</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-gold"></i>
+                                <span>Build solutions that drive real-world impact</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary mt-4 mb-0">I don't just write code — I build solutions that drive real-world impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Where Business Meets Technology -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">Where Business Meets Technology</h2>
+                    <hr class="luxury-hr">
+                </div>
+                <div class="journey-card text-center">
+                    <p class="lead mb-4">What makes me different is simple:</p>
+                    <div class="row justify-content-center g-4">
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <i class="bi bi-stars fs-2 text-gold"></i>
+                                <p class="fw-bold mt-2 mb-0">I don't think like just a developer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <i class="bi bi-briefcase fs-2 text-gold"></i>
+                                <p class="fw-bold mt-2 mb-0">I think like a business owner building with code</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="strength-badge w-100">🎯 User experience first</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="strength-badge w-100">💰 Business viability</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="strength-badge w-100">📈 Scalability</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="strength-badge w-100">🌍 Real-world usability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Strengths -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">🧠 Core Strengths</h2>
+                    <hr class="luxury-hr">
+                </div>
+                <div class="row g-3 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="journey-card text-center p-4">
+                            <i class="bi bi-stack fs-1 text-gold"></i>
+                            <p class="fw-bold mt-3 mb-0">Full-Stack Development</p>
+                            <small class="text-secondary">React, Node.js, MongoDB, REST APIs</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="journey-card text-center p-4">
+                            <i class="bi bi-graph-up fs-1 text-gold"></i>
+                            <p class="fw-bold mt-3 mb-0">Business Strategy & Product Thinking</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="journey-card text-center p-4">
+                            <i class="bi bi-heart fs-1 text-gold"></i>
+                            <p class="fw-bold mt-3 mb-0">Customer Experience & User Psychology</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="journey-card text-center p-4">
+                            <i class="bi bi-megaphone fs-1 text-gold"></i>
+                            <p class="fw-bold mt-3 mb-0">Digital Marketing & Brand Growth</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="journey-card text-center p-4">
+                            <i class="bi bi-puzzle fs-1 text-gold"></i>
+                            <p class="fw-bold mt-3 mb-0">Problem Solving & Systems Thinking</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="vision-quote">
+                    <i class="bi bi-globe2 fs-1 text-gold d-block mb-3"></i>
+                    <h3 class="fw-bold mb-3">🌍 Vision</h3>
+                    <p class="lead mb-0">My goal is to build and contribute to digital products that solve real problems in Africa and beyond, empower businesses and individuals, and bridge the gap between technology and everyday life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Note -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="text-center p-5 rounded-4" style="background: linear-gradient(135deg, #F8F5EF 0%, #FDFCF8 100%);">
+                    <i class="bi bi-chat-quote-fill fs-1 text-gold mb-3 d-block"></i>
+                    <p class="lead fw-medium mb-0">Every line of code I write is backed by years of experience in business, people, and execution.</p>
+                    <hr class="luxury-hr">
+                    <p class="text-gold fw-bold">That's my edge.</p>
+                    <a href="./contactme.html" class="btn-luxury-outline mt-3">Let's build something extraordinary →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container pb-5 mt-5">
+        <div class="d-flex flex-wrap justify-content-center gap-4 pt-4 pb-3">
+            <a href="https://github.com/paschalfidel/" target="_blank" class="text-decoration-none">
+                <i class="bi bi-github fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/paschalomereife/" target="_blank" class="text-decoration-none">
+                <i class="bi bi-linkedin fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+            </a>
+            <a href="https://www.instagram.com/paschalomens/" target="_blank" class="text-decoration-none">
+                <i class="bi bi-instagram fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+            </a>
+            <a href="https://x.com/paschalomens/" target="_blank" class="text-decoration-none">
+                <i class="bi bi-twitter-x fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+            </a>
+            <a href="https://wa.me/+2348182799154" target="_blank" class="text-decoration-none">
+                <i class="bi bi-whatsapp fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+            </a>
+        </div>
+        <div class="text-center pt-3 border-top">
+            <p class="small text-secondary mb-0">© Paschal Omereife 2025 — Building solutions shaped by real-world experience</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

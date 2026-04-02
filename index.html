@@ -1,159 +1,808 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paschal Omereife</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <style>
-      #profile-link-container {
-        display: flex;
-        justify-content: center;
-        gap: 10%;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Paschal Omereife | Luxe Dev Studio</title>
+  <!-- Google Fonts + Bootstrap Icons + minimal CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FDFCF8;
+      scroll-behavior: smooth;
+      color: #1E1E2A;
+    }
+
+    /* custom luxury accents */
+    .gold-gradient {
+      background: linear-gradient(135deg, #C5A267 0%, #E4C48E 100%);
+    }
+    .text-gold {
+      color: #C5A267;
+    }
+    .border-gold {
+      border-color: #C5A267;
+    }
+    .btn-luxury {
+      background: transparent;
+      border: 1px solid #C5A267;
+      color: #1E1E2A;
+      padding: 0.7rem 2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      backdrop-filter: blur(2px);
+      border-radius: 40px;
+    }
+    .btn-luxury:hover {
+      background: #C5A267;
+      color: white;
+      border-color: #C5A267;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px -12px rgba(197, 162, 103, 0.4);
+    }
+    .btn-luxury-filled {
+      background: #1E1E2A;
+      border: none;
+      color: #FDFCF8;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn-luxury-filled:hover {
+      background: #C5A267;
+      color: #0a0a0f;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
+    }
+
+    /* glass nav */
+    .glass-nav {
+      background: rgba(253, 252, 248, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      padding: 0.8rem 0;
+      transition: all 0.2s;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #2C2C3A 0%, #C5A267 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+    }
+    
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+      color: #C5A267;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+    
+    .navbar-toggler-icon-custom {
+      font-size: 1.8rem;
+      color: #C5A267;
+    }
+    
+    /* Nav links styling */
+    .nav-link-luxury {
+      font-weight: 500;
+      color: #1E1E2A;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    
+    .nav-link-luxury:hover,
+    .nav-link-luxury.active {
+      color: #C5A267;
+    }
+    
+    .nav-link-luxury.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: #C5A267;
+      border-radius: 2px;
+    }
+    
+    /* Dropdown styling */
+    .dropdown-menu-luxury {
+      background: white;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 0.5rem 0;
+      margin-top: 0.5rem;
+    }
+    
+    .dropdown-item-luxury {
+      padding: 0.6rem 1.5rem;
+      color: #1E1E2A;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .dropdown-item-luxury:hover {
+      background: rgba(197, 162, 103, 0.1);
+      color: #C5A267;
+      padding-left: 1.8rem;
+    }
+    
+    /* Mobile offcanvas */
+    .offcanvas-luxury {
+      background: #0A0A0F;
+      width: 280px;
+    }
+    
+    .offcanvas-luxury .offcanvas-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+    }
+    
+    .offcanvas-luxury .offcanvas-title {
+      color: white;
+      font-weight: 600;
+    }
+    
+    .offcanvas-luxury .nav-link {
+      color: rgba(255, 255, 255, 0.7);
+      padding: 0.8rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    
+    .offcanvas-luxury .nav-link:hover,
+    .offcanvas-luxury .nav-link.active {
+      color: #C5A267;
+      background: rgba(197, 162, 103, 0.1);
+    }
+    
+    .offcanvas-luxury .dropdown-menu {
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      padding-left: 1.5rem;
+    }
+    
+    .offcanvas-luxury .dropdown-item {
+      color: rgba(255, 255, 255, 0.6);
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+    }
+    
+    .offcanvas-luxury .dropdown-item:hover {
+      background: rgba(197, 162, 103, 0.15);
+      color: #C5A267;
+    }
+    
+    .card-hover-lift {
+      transition: all 0.35s ease;
+      border-radius: 28px;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+    }
+    .card-hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12);
+      background: white;
+    }
+    .luxury-section-title {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #1E1E2A, #5a4a2e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-image-frame {
+      border-radius: 38% 62% 70% 30% / 40% 45% 55% 60%;
+      overflow: hidden;
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
+      transition: all 0.6s ease;
+    }
+    .hero-image-frame img {
+      width: 100%;
+      height: auto;
+      transform: scale(1.02);
+      transition: transform 0.7s;
+    }
+    .hero-image-frame:hover img {
+      transform: scale(1.05);
+    }
+    .social-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(197, 162, 103, 0.12);
+      transition: all 0.2s;
+    }
+    .social-ring:hover {
+      background: #C5A267;
+      transform: translateY(-4px);
+    }
+    .social-ring img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0.2);
+      transition: filter 0.2s;
+    }
+    .social-ring:hover img {
+      filter: brightness(0) invert(1);
+    }
+    footer {
+      border-top: 1px solid rgba(197, 162, 103, 0.2);
+    }
+    .gallery-img-thumb {
+      border-radius: 28px;
+      cursor: pointer;
+      transition: all 0.4s;
+      filter: grayscale(0.1);
+    }
+    .gallery-img-thumb:hover {
+      transform: scale(1.02);
+      filter: grayscale(0);
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.2);
+    }
+    @media (max-width: 768px) {
+      .luxury-section-title {
+        font-size: 2.4rem;
       }
-
-      img {
-        max-width: 100%;
-        height: auto;
+      .hero-image-frame {
+        border-radius: 40% 60% 60% 40% / 50% 45% 55% 50%;
       }
-
-      @media (max-height: 800px) {
-        h1 {
-          font-size: 20px;
-        }
-
-        h3 {
-          font-size: 20px;
-        }
-        p {
-          font-size: 10px;
-        }
+      .navbar-brand {
+        font-size: 1.2rem;
       }
-    </style>
-  </head>
-  <body>
+    }
+    .bg-cream {
+      background-color: #FDFCF8;
+    }
+    hr.luxury-hr {
+      width: 70px;
+      height: 3px;
+      background: #C5A267;
+      opacity: 0.7;
+      margin: 1rem auto;
+    }
+    
+    /* Contact Form Styling */
+    .contact-form-wrapper {
+      background: white;
+      border-radius: 32px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(197, 162, 103, 0.1);
+    }
+    
+    .form-control-luxury {
+      border: 1px solid rgba(197, 162, 103, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control-luxury:focus {
+      border-color: #C5A267;
+      box-shadow: 0 0 0 3px rgba(197, 162, 103, 0.1);
+      outline: none;
+    }
+    
+    .contact-info-card {
+      background: linear-gradient(135deg, #F8F5EF 0%, #FDFCF8 100%);
+      border-radius: 32px;
+      padding: 2rem;
+      height: 100%;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(197, 162, 103, 0.12);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-icon i {
+      font-size: 1.5rem;
+      color: #C5A267;
+    }
 
-    <header>
-      <nav class="navbar navbar-dark bg-dark fixed-top" aria-label="Dark offcanvas navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">Paschal Omereife</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" aria-label="Toggle navigation">
-            <img src="./images/myimage.jpg" height="50" width="50" style="border-radius: 50%;">
-          </button>
-          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel"><span><img src="./images/myimage.jpg" height="50" width="50" style="border-radius: 50%;"></span> Paschal Omereife</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./public/aboutme.html">About Me</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./public/contactme.html">Contact Me</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Features
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./public/family.html">Family</a></li>
-                    <li><a class="dropdown-item" href="./public/business.html">Business</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="./gallery/personalsite.html">Gallery</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+    /* Section offset for fixed header */
+    section {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation: Latest with Home, About, Projects, Contact, Features -->
+<nav class="navbar navbar-expand-lg luxury-nav fixed-top glass-nav">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">PASCHAL OMEREIFE</a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar" aria-controls="mobileNavbar" aria-label="Toggle navigation">
+      <i class="bi bi-list navbar-toggler-icon-custom"></i>
+    </button>
+    
+    <!-- Desktop Navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item">
+          <a class="nav-link nav-link-luxury" data-section="home" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-luxury" data-section="aboutme" href="#aboutme">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-luxury" data-section="projects" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-luxury" data-section="contactme" href="#contactme">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-luxury dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Features
+          </a>
+          <ul class="dropdown-menu dropdown-menu-luxury">
+            <li><a class="dropdown-item dropdown-item-luxury" data-section="business" href="#business">Business</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item dropdown-item-luxury" data-section="personalsite" href="#personalsite">Gallery</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end offcanvas-luxury" tabindex="-1" id="mobileNavbar" aria-labelledby="mobileNavbarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="mobileNavbarLabel">
+      <img src="./public/images/myimage.jpg" height="40" width="40" style="border-radius: 50%; object-fit: cover; margin-right: 10px;">
+      Paschal Omereife
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="navbar-nav flex-grow-1">
+      <li class="nav-item">
+        <a class="nav-link" data-section="home" href="#" data-bs-dismiss="offcanvas">
+          <i class="bi bi-house-door me-2"></i> Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-section="aboutme" href="#aboutme" data-bs-dismiss="offcanvas">
+          <i class="bi bi-person me-2"></i> About Me
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-section="projects" href="#projects" data-bs-dismiss="offcanvas">
+          <i class="bi bi-code-square me-2"></i> Projects
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-section="contactme" href="#contactme" data-bs-dismiss="offcanvas">
+          <i class="bi bi-envelope me-2"></i> Contact Me
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill me-2"></i> Features
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" data-section="business" href="#business" data-bs-dismiss="offcanvas">Business</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" data-section="personalsite" href="#personalsite" data-bs-dismiss="offcanvas">Gallery</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <!-- Hero section modern + full width -->
+  <section id="home" style="scroll-margin-top: 80px;">
+    <div class="container pt-5 mt-5">
+      <div class="row align-items-center justify-content-between g-5 py-5 mt-3">
+        <div class="col-lg-6 order-lg-1 order-2">
+          <div class="badge bg-light text-dark rounded-pill px-4 py-2 mb-3 shadow-sm" style="background: #ece9e0 !important;">
+            <i class="bi bi-stars text-gold"></i> Full Stack Architect
+          </div>
+          <h1 class="display-3 fw-bold lh-1 mb-4" style="letter-spacing: -0.02em;">Where vision<br><span class="text-gold">meets code.</span></h1>
+          <p class="lead text-secondary-emphasis mb-4" style="max-width: 90%;">I'm Paschal Chidebe Omereife — crafting responsive, high-performance web experiences that blend modern aesthetics with robust backend mastery.</p>
+          <div class="d-flex flex-wrap gap-3 mt-3">
+            <a href="./src/sections/aboutme.html"><button class="btn-luxury-filled">Explore journey <i class="bi bi-arrow-right-short"></i></button></a>
+            <a href="./src/projects/projects.html"><button class="btn-luxury">View projects</button></a>
+          </div>
+          <div class="d-flex gap-4 mt-4">
+              <a href="https://github.com/paschalfidel/" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-github fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/paschalomereife/" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-linkedin fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+              </a>
+              <a href="https://www.instagram.com/paschalomens/" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-instagram fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+              </a>
+              <a href="https://wa.me/+2348182799154" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-whatsapp fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+              </a>
+              <a href="https://x.com/paschalomens/" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-twitter-x fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+              </a>
           </div>
         </div>
-      </nav>
-    </header>
-
-    <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-10 col-sm-8 col-lg-6">
-            <img src="./images/myimage.jpg" class="d-block mx-lg-auto img-fluid" alt="myimage" width="400" height="200" loading="lazy" style="border-radius: 50%;">
-          </div>
-          <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3 py-5">Full Stack Web Developer</h1>
-            <p class="lead">I'm Paschal Chidebe Omereife, a full-stack web developer with a passion for building modern, responsive, and scalable web applications. I specialize in both front-end technologies and backend frameworks, delivering seamless user experiences and robust server-side solutions.
-
-              For a detailed look at what I do, including my expertise in various technologies and my journey through web development, check out my About Me page.</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <a href="./public/aboutme.html"><button type="button" class="btn btn-primary btn px-4 me-md-2">About me</button></a>
-              <a href="./public/contactme.html"><button type="button" class="btn btn-outline-secondary btn px-4">Contact me</button></a>
-            </div>
+        <div class="col-lg-6 order-lg-2 order-1 text-center">
+          <div class="hero-image-frame mx-auto" style="max-width: 380px;">
+            <img src="./public/images/myimage.jpg" alt="Paschal Omereife" class="img-fluid">
           </div>
         </div>
-      </div>
-
-      <div class="container py-4">
-    <header class="pb-3 mb-4 border-bottom">
-      <a href="./gallery/personalsite.html" class="d-flex align-items-center text-body-emphasis text-decoration-none"></a>
-        <span class="fs-2"><strong>Gallery/Lifestyle</strong></span>
-      </a>
-    </header>
-
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h3>Making Life Contagious</h3>
-        <p class="lead">Welcome to my gallery—a collection of moments shared with the amazing people I've crossed paths with. I believe in living life to the fullest and spreading that joy to those around me. Through these snapshots, you'll witness the connections, smiles, and shared experiences that keep my spirit alive. Each image tells a story of positivity, optimism, and the beauty of life when we embrace it together. Enjoy the journey!</p>
-        <a href="./gallery/personalsite.html"><button class="btn btn-primary btn" type="button">Visit Gallery</button></a>
       </div>
     </div>
+  </section>
 
-    <hr>
-
-    <div class="row align-items-md-stretch mt-5">
-      <div class="col-md-6">
-        <div class="h-90 p-5 text-bg-dark rounded-3">
-          <h3>Explore My Experiences</h3>
-          <p class="lead" style="font-size: 15px">Beyond being a full stack web developer, I’ve ventured into various fields that have shaped my growth as an entrepreneur. From running a business as a sales rep to delivering excellent customer service and managing social media platforms, these experiences have broadened my skill set and perspective. Click below to see how these roles have influenced my journey and the value I bring to every project.</p>
-          <a href="./public/business.html"><button class="btn btn-outline-light" type="button">View My Other Works</button></a>
+  <!-- about teaser + call to action -->
+  <section id="aboutme" style="scroll-margin-top: 80px;">
+    <div class="container my-5 py-5">
+      <div class="row g-4 align-items-center bg-cream p-5 rounded-5 shadow-sm" style="background: linear-gradient(120deg, #FCF9F2, #FDFCF8);">
+        <div class="col-lg-8">
+          <h2 class="fw-bold display-6">Full-stack developer & <span class="text-gold">creative technologist</span></h2>
+          <p class="lead mt-3">Over 7 years in customer excellence, logistics, and business scaling — merged with modern web craftsmanship. I build for the intersection of emotion and efficiency.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="./src/sections/aboutme.html"><button class="btn-luxury-filled">Read full story</button></a>
+            <a href="./src/sections/contactme.html"><button class="btn-luxury">Let's connect</button></a>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center">
+          <i class="bi bi-quote display-1 text-gold opacity-25"></i>
+          <p class="fst-italic mt-2">"Design is not just what it looks like — it's how it works, and how it makes people feel."</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-        <img src="./images/Virgo.jpg" alt="Virgo" height="300" width="450">
-      </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-          <img src="./images/Libra.jpg" alt="Libra" height="300" width="450">
-        </div>
+  <!-- double column: business + projects (luxe cards) -->
+  <section id="business" style="scroll-margin-top: 80px;">
+    <div class="container mt-5 pt-4">
+      <div class="row g-5">
+        <div class="col-md-6">
+          <div class="card-hover-lift p-4 p-lg-5 h-100 border-0 shadow-sm rounded-4">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <i class="bi bi-briefcase-fill fs-1 text-gold"></i>
+              <h3 class="fw-bold mb-0">Entrepreneurial Edge</h3>
+            </div>
+            <p class="lead" style="font-size: 1rem;">From sales representation, social media management, to CEO of cross-border client relations — my journey beyond code shapes every digital product I craft. Human-centric, business-savvy solutions.</p>
+            <a href="./src/sections/business.html"><button class="btn-luxury mt-3">Explore experiences →</button></a>
+          </div>
         </div>
         <div class="col-md-6">
-          <div class="h-90 p-5 text-bg-dark rounded-3">
-          <h3>... And My Projects</h3>
-          <p class="lead" style="font-size: 15px">Take a look at the diverse web development projects I’ve worked on so far. From responsive front-end designs to robust back-end systems, each project reflects my expertise in creating seamless, dynamic user experiences. Explore how I bring ideas to life using modern frameworks and technologies, with a focus on both functionality and aesthetics.</p>
-          <a href="./projects/projects.html"><button class="btn btn-outline-secondary" type="button">View My Projects</button></a>
+          <div class="card-hover-lift p-4 p-lg-5 h-100 border-0 shadow-sm rounded-4">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <i class="bi bi-code-square fs-1 text-gold"></i>
+              <h3 class="fw-bold mb-0">Signature Projects</h3>
+            </div>
+            <p class="lead" style="font-size: 1rem;">Nigerian Mobile Validator, Palindrome Checker, Roman Numeral Converter, dynamic survey forms and full-stack apps. Each project reflects clean UI, performance & real-world utility.</p>
+            <a href="./src/projects/projects.html"><button class="btn-luxury mt-3">Case studies →</button></a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="container py-3">
-      <div id="profile-link-container" class="pt-4 mt-4 text-body-secondary border-top text-center">
-      <a id="profile-link" href="https://github.com/paschalfidel/" target="_blank"><img src="./images/github-logo.png" height="30" width="30" alt="github-logo"></a>
-      <a id="profile-link" href="https://web.facebook.com/omereife/" target="_blank"><img src="./images/facebook-logo.jpg" height="30" width="30" alt="Facebook_Logo"></a>
-      <a id="profile-link" href="https://www.instagram.com/paschalomens/" target="_blank"><img src="./images/instagram-log.png" height="30" width="30" alt="instagram-log"></a>
-      <a id="profile-link" href="https://x.com/paschalomens/" target="_blank"><img src="./images/x-logo.png" height="30" width="30" alt="x-logo"></a>
-      <a id="profile-link" href="https://www.linkedin.com/in/paschalomereife/" target="_blank"><img src="./images/linkedin-logo.png" height="30" width="30" alt="linkedin-logo"></a>
-      <a id="profile-link" href="https://wa.me/+2348182799154?text=Hey! Paschal, Your Web Developer Is Here" target="_blank"><img src="./images/whatsapp-logo.jpg" height="30" width="30" alt="whatsapp-logo"></a>
+  <!-- Featured Projects Showcase (modern grid) -->
+  <section id="projects" style="scroll-margin-top: 80px;">
+    <div class="container mt-5 pt-4">
+      <div class="text-center mb-5">
+        <span class="text-gold text-uppercase fw-semibold tracking-wide">portfolio highlights</span>
+        <h2 class="luxury-section-title mt-2">Featured digital works</h2>
+        <hr class="luxury-hr">
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 rounded-4 overflow-hidden shadow-sm card-hover-lift h-100">
+            <img src="./public/images/numbervalidatorng.PNG" class="card-img-top" style="height: 200px; object-fit: cover;" alt="validator">
+            <div class="card-body">
+              <h5 class="fw-bold">Nigerian Mobile Validator</h5>
+              <p class="small text-secondary">Regex-based phone validation tool for 🇳🇬 numbers.</p>
+              <a href="./src/projects/Nigerian-Number-Validator/index.html" class="stretched-link text-gold fw-semibold">Live demo →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 rounded-4 overflow-hidden shadow-sm card-hover-lift h-100">
+            <img src="./public/images/Palindrome Checker.PNG" class="card-img-top" style="height: 200px; object-fit: cover;" alt="palindrome">
+            <div class="card-body">
+              <h5 class="fw-bold">Palindrome Checker</h5>
+              <p class="small text-secondary">Clean UI, smart logic to detect palindromic phrases.</p>
+              <a href="./src/projects/Palindrome-Checker/index.html" class="stretched-link text-gold fw-semibold">Try now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 rounded-4 overflow-hidden shadow-sm card-hover-lift h-100">
+            <img src="./public/images/romanconverter.png" class="card-img-top" style="height: 200px; object-fit: cover;" alt="roman">
+            <div class="card-body">
+              <h5 class="fw-bold">Roman Numeral Converter</h5>
+              <p class="small text-secondary">Convert integers to roman numerals with elegance.</p>
+              <a href="./src/projects/Roman-Numeral-Converter/index.html" class="stretched-link text-gold fw-semibold">Live demo →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="./src/projects/projects.html" class="btn-luxury-filled px-5 py-2">Explore full archive <i class="bi bi-grid-3x3-gap"></i></a>
       </div>
     </div>
+  </section>
 
-    <footer class="pt-3 mt-4 text-body-secondary border-top text-center">
-      © Paschal Omereife 2024
+  <!-- Gallery / Lifestyle Preview (Elegant) -->
+  <section id="personalsite" style="scroll-margin-top: 80px;">
+    <div class="container mt-5 pt-4">
+      <div class="row align-items-center g-5 bg-body-tertiary p-5 rounded-4 shadow-sm" style="background: #F8F6F1 !important;">
+        <div class="col-md-6">
+          <span class="text-uppercase small text-gold tracking-wide fw-semibold">visual diary</span>
+          <h2 class="luxury-section-title mt-2">Making Life Contagious</h2>
+          <p class="lead mt-3">Moments, people, and adventures that fuel creativity. Step into my gallery — where every image tells a story of optimism and connection.</p>
+          <a href="./src/sections/personalsite.html"><button class="btn-luxury mt-2"><i class="bi bi-camera-fill me-2"></i>Visit Gallery</button></a>
+        </div>
+        <div class="col-md-6">
+          <div class="row g-3">
+            <div class="col-6"><img src="./public/images/myimage1.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="studio" onclick="window.location.href='./src/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="./public/images/lifestyle/rlabnigmoments1.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="rlab" onclick="window.location.href='./src/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="./public/images/lifestyle/dccmoments4.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="dcc" onclick="window.location.href='./src/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="./public/images/lifestyle/atbeachwithfamily.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="beach" onclick="window.location.href='./src/sections/personalsite.html'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Contact Section - Added after About teaser -->
+  <section id="contactme" style="scroll-margin-top: 80px;">
+    <div class="container my-5 py-4">
+      <div class="text-center mb-5">
+        <span class="text-gold text-uppercase fw-semibold tracking-wide">get in touch</span>
+        <h2 class="luxury-section-title mt-2">Let's Create Something <br><span class="text-gold">Extraordinary</span></h2>
+        <hr class="luxury-hr">
+        <p class="lead text-secondary">Have a project in mind? Let's bring your vision to life.</p>
+      </div>
+      
+      <div class="row g-5">
+        <!-- Contact Info -->
+        <div class="col-lg-5">
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="bi bi-chat-dots-fill"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Let's Talk</h4>
+            <p class="text-secondary mb-4">Whether you have a question, a project proposal, or just want to say hello, I'd love to hear from you.</p>
+            
+            <div class="mt-4 pt-3">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-envelope-fill text-gold me-3 fs-5"></i>
+                <div>
+                  <p class="small text-secondary mb-0">Email</p>
+                  <a href="mailto:paschalomereife@gmail.com" class="text-decoration-none text-dark fw-medium">paschalomereife@gmail.com</a>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-whatsapp text-gold me-3 fs-5"></i>
+                <div>
+                  <p class="small text-secondary mb-0">WhatsApp</p>
+                  <a href="https://wa.me/+2348182799154" class="text-decoration-none text-dark fw-medium">+234 818 279 9154</a>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-geo-alt-fill text-gold me-3 fs-5"></i>
+                <div>
+                  <p class="small text-secondary mb-0">Location</p>
+                  <p class="text-dark fw-medium mb-0">Lagos, Nigeria</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-5 pt-3">
+              <p class="small text-secondary mb-2">Follow me on social media</p>
+              <div class="d-flex gap-2">
+                <a href="https://github.com/paschalfidel/" target="_blank" class="social-ring" style="width: 38px; height: 38px;"><i class="bi bi-github text-gold"></i></a>
+                <a href="https://www.linkedin.com/in/paschalomereife/" target="_blank" class="social-ring" style="width: 38px; height: 38px;"><i class="bi bi-linkedin text-gold"></i></a>
+                <a href="https://www.instagram.com/paschalomens/" target="_blank" class="social-ring" style="width: 38px; height: 38px;"><i class="bi bi-instagram text-gold"></i></a>
+                <a href="https://x.com/paschalomens/" target="_blank" class="social-ring" style="width: 38px; height: 38px;"><i class="bi bi-twitter-x text-gold"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-form-wrapper">
+            <form action="#" method="POST" class="needs-validation" novalidate>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label for="firstName" class="form-label fw-medium">First name</label>
+                  <input type="text" class="form-control form-control-luxury" id="firstName" required>
+                  <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="lastName" class="form-label fw-medium">Last name</label>
+                  <input type="text" class="form-control form-control-luxury" id="lastName" required>
+                  <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="col-md-12">
+                  <label for="email" class="form-label fw-medium">Email address</label>
+                  <input type="email" class="form-control form-control-luxury" id="email" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-12">
+                  <label for="subject" class="form-label fw-medium">Subject</label>
+                  <input type="text" class="form-control form-control-luxury" id="subject" placeholder="How can I help you?">
+                </div>
+                <div class="col-md-12">
+                  <label for="message" class="form-label fw-medium">Your message</label>
+                  <textarea class="form-control form-control-luxury" id="message" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
+                  <div class="invalid-feedback">Please enter your message.</div>
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" class="btn-luxury-filled w-100 py-3">Send Message <i class="bi bi-arrow-right ms-2"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- social links footer and copyright -->
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center gap-4 pt-4 pb-3">
+      <a href="https://github.com/paschalfidel/" target="_blank" class="text-decoration-none">
+        <i class="bi bi-github fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/paschalomereife/" target="_blank" class="text-decoration-none">
+        <i class="bi bi-linkedin fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+      </a>
+      <a href="https://www.instagram.com/paschalomens/" target="_blank" class="text-decoration-none">
+        <i class="bi bi-instagram fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+      </a>
+      <a href="https://wa.me/+2348182799154" target="_blank" class="text-decoration-none">
+        <i class="bi bi-whatsapp fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+      </a>
+      <a href="https://x.com/paschalomens/" target="_blank" class="text-decoration-none">
+        <i class="bi bi-twitter-x fs-5 text-secondary" style="transition: color 0.2s;" onmouseover="this.style.color='#C5A267'" onmouseout="this.style.color='#6c757d'"></i>
+      </a>
+    </div>
+    <footer class="pt-4 pb-5 text-center text-secondary">
+      <p class="mb-0 small">© Paschal Omereife — 2025 • <span class="text-gold">Luxury in simplicity</span> • Built with intention</p>
     </footer>
   </div>
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Active navigation highlighting based on scroll position
+  const sections = ['home', 'aboutme', 'business', 'projects', 'personalsite', 'contactme'];
+  const navLinks = document.querySelectorAll('.nav-link-luxury[data-section], .offcanvas .nav-link[data-section]');
+  const dropdownItems = document.querySelectorAll('.dropdown-item-luxury[data-section], .offcanvas .dropdown-item[data-section]');
+  
+  function updateActiveSection() {
+    const scrollPosition = window.scrollY + 150; // Offset for header
+    
+    let currentSection = 'home';
+    
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const offsetTop = element.offsetTop;
+        const offsetBottom = offsetTop + element.offsetHeight;
+        
+        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+          currentSection = section;
+          break;
+        }
+      }
+    }
+    
+    // Update desktop navigation links
+    navLinks.forEach(link => {
+      const section = link.getAttribute('data-section');
+      if (section === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+    
+    // Update dropdown items
+    dropdownItems.forEach(item => {
+      const section = item.getAttribute('data-section');
+      if (section === currentSection) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+  
+  // Smooth scroll for navigation links
+  function handleNavClick(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId && targetId !== '#') {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (this.getAttribute('data-section') === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+  
+  // Add click handlers to navigation links
+  document.querySelectorAll('.nav-link-luxury, .offcanvas .nav-link, .dropdown-item-luxury, .offcanvas .dropdown-item').forEach(link => {
+    link.addEventListener('click', handleNavClick);
+  });
+  
+  // Listen for scroll events
+  window.addEventListener('scroll', updateActiveSection);
+  window.addEventListener('load', updateActiveSection);
+  
+  // Gallery thumbnails navigation
+  const galleryThumbs = document.querySelectorAll('.gallery-img-thumb');
+  galleryThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      window.location.href = './src/sections/personalsite.html';
+    });
+  });
+  
+  // Form validation
+  (function() {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          event.preventDefault();
+          alert('Thank you for reaching out! I will get back to you soon.');
+          form.reset();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+</body>
 </html>
