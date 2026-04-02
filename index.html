@@ -577,10 +577,10 @@
         </div>
         <div class="col-md-6">
           <div class="row g-3">
-            <div class="col-6"><img src="/public/images/myimage1.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="studio" onclick="window.location.href='./src/sections/personalsite.html'"></div>
-            <div class="col-6"><img src="/public/images/lifestyle/rlabnigmoments1.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="rlab" onclick="window.location.href='./src/sections/personalsite.html'"></div>
-            <div class="col-6"><img src="/public/images/lifestyle/dccmoments4.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="dcc" onclick="window.location.href='./src/sections/personalsite.html'"></div>
-            <div class="col-6"><img src="/public/images/lifestyle/atbeachwithfamily.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="beach" onclick="window.location.href='./src/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="/public/images/myimage1.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="studio" onclick="window.location.href='/public/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="/public/images/lifestyle/rlabnigmoments1.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="rlab" onclick="window.location.href='/public/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="/public/images/lifestyle/dccmoments4.jpg" class="img-fluid rounded-4 gallery-img-thumb" alt="dcc" onclick="window.location.href='/public/sections/personalsite.html'"></div>
+            <div class="col-6"><img src="/public/images/lifestyle/atbeachwithfamily.jpeg" class="img-fluid rounded-4 gallery-img-thumb" alt="beach" onclick="window.location.href='/public/sections/personalsite.html'"></div>
           </div>
         </div>
       </div>
@@ -781,7 +781,7 @@
   const galleryThumbs = document.querySelectorAll('.gallery-img-thumb');
   galleryThumbs.forEach(thumb => {
     thumb.addEventListener('click', () => {
-      window.location.href = './src/sections/personalsite.html';
+      window.location.href = '/public/sections/personalsite.html';
     });
   });
   
