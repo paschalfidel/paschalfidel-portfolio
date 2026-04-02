@@ -1,8 +1,30 @@
 {
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/public/(.*)", "dest": "/public/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/public/sections/:path*",
+      "destination": "/public/sections/:path*"
+    },
+    {
+      "source": "/public/projects/:path*",
+      "destination": "/public/projects/:path*"
+    },
+    {
+      "source": "/public/images/:path*",
+      "destination": "/public/images/:path*"
+    },
+    {
+      "source": "/404.html",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "trailingSlash": false
 }
