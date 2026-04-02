@@ -1,7 +1,7 @@
 # Paschal Omereife \| Full-Stack Developer Portfolio
 
 ![Portfolio
-Preview](https://via.placeholder.com/1200x630?text=Paschal+Omereife+Portfolio)
+Preview](./public/images/preview.png)
 
 A modern, luxurious full-stack developer portfolio showcasing technical
 expertise, entrepreneurial journey, and interactive web applications.
